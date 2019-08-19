@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--  -->
+    <div id="box"></div>
+
+    <script>
+        /* 
+        1、引用数据类型  [] {} Date Math 正则 function..
+         基本数据类型存在栈内存中 操作的是值
+         引用数据类型 存在于堆内存中  操作的是地址
+        2、 判断数据类型：
+         typeof
+         prototype.tostring.call()
+         consructor  
+         instanceof
+    
+         3、声明变量 var let const function class import
+         4、
+         5、break 指的是跳出整个循环 不再执行for语句中的i++     区别于continue跳出本次循环
+         6、数组末尾添加项 arr[arr.length]=100,arr.push(100),arr.splice(arr.length,0,100)
+         删除数组的最后一项 arr.length--  arr.pop() arr.splice(arr.length-1,1)
+         7、数组排序 arr.sort((a,b)=>a-b) /arr.sort((a,b)=>{return a-b}) 
+         8、实现查找数组的第N项到第m项 包含第n项和第M项 slice(n-1,m)
+         9、replace(/-/,'/')
+         10、[n-m]之间的随机整数Math.round(Math.random()*(m-n)+n)  math.random() [0-1)之间的随机整数
+         11、1+null=>1   1+null+true=>2    
+         12、
+         13、document.getElementsByclassName('')[0]
+         document.getElementsByTagName('')[0]
+         document.getElement
+         14、
+         1，3，，8，9 nodeType
+         元素节点的 nodeType 1
+         文本节点 3
+         注释节点 8
+         根节点   9
+         previousSibling
+         获取body的简便方式  document.body   获取html,,document.documentElement
+         innerHTML识别结构 innerText不能识别结构
+    15、动态创建DIV 放到body的末尾
+                   ****  var div=document.createElement('div')
+                         document.body.appendChild(div
+    
+    
+    16、[]==[] false  比较的是地址 是两个数组 不一样
+        ！[]==[]   ![]=>false   0==0  true
+    
+    17、clearTimeout clearInterval
+    setTimeout 加上递归就能实现setInterval
+    异步
+    18、Math.max(...ary)
+    19.复制数组 ary.slice(0)  ary.slice()
+    或ary.concat([])  ary.concat()
+        
+         */
+        //  替换一个字符串中的字符除了用replace之外也可以用这种方法
+        var str = '2018-12-12'
+        var arr = str.split('-')
+        console.log(arr)
+        var str2 = arr.join('/')
+        console.log(str2)
+
+        box.innerHTML = '<button onclick="alert(666)"></button>'
+
+        /* 
+        任意数求和  arguments
+        */
+
+
+        function sum() {
+            var a = 0;
+            for (var i = 0; i < arguments.length; i++) {
+                if (!isNaN(arguments[i])) {
+                    a += arguments[i] / 1
+                }
+            }
+        }
+        console.log(sum(1, 3, '4', NaN, 'yyy'))
+
+        // 大题2 拆字符串
+        function query(str) {
+            // 先把str按照？拆分 取后面那一项
+            var str2 = str.split('?')[1];
+            // 把str2按照&进行拆分
+            var arr = str2.split('&');
+            var obj = {}
+            arr.forEach((v, i) => {
+                var arr1 = v.split('=');
+                obj[arr1[0]] = arr1[1]
+            });
+            return obj
+        }
+
+
+        // 隔行变色
+        var olis = document.getElementsByTagName('li');
+        for (var i = 0; i < olis.length; i++) {
+
+            olis[i].style.background = i % 2 ? 'red' : 'black'
+            olis[i].myindex = i;
+        }
+        olis[i] = onmouseenter = function () {
+            var col = this.style.background
+            this.style.background = 'green'
+        }
+        olis[i] = onmouseleave = function () {
+            this.style.background = col
+        }
+        olis[i].onclick=function(){
+            alert(`这是第${this.myindex}行`)
+        }
+    </script>
+</body>
+
+</html>
